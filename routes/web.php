@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('blog/index');
-});
+// Route::get('/', function () {
+//     return view('blog/index');
+// });
+
+Route::resource('/', BlogController::class);
 
 Route::get('/blog', function () {
     return view('blog/index');
