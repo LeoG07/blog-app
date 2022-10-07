@@ -19,12 +19,14 @@
 <tr> 
 <th width="20px" class="text-center">No</th> 
 <th>Title</th> 
+<th>Action</th>
 <th width="280px"class="text-center">Action</th> 
 </tr> 
 @foreach ($posts as $post) 
 <tr> 
 <td class="text-center">{{ ++$i }}</td> 
 <td>{{ $post->title }}</td> 
+<td>{{ $post->content }}</td> 
 <td class="text-center"> 
 <form action="{{ route('posts.destroy',$post->id) }}" method="POST"> 
 <a class="btn btn-info btn-sm" href="{{ route('posts.show',$post->id) }}">Show</a> 

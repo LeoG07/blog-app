@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 use App\Models\Post;
 
 class BlogController extends Controller
@@ -12,6 +14,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $posts = Post::latest()->paginate(5);
@@ -27,7 +30,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -38,15 +41,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        Post::create($request->all());
-
-        return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+        //
     }
 
     /**
@@ -55,9 +50,15 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts.show',compact('post'));
+        $post = $id;
+
+        $posts = DB::table('posts')
+                ->where('id', '=', $id)
+                ->get();
+        // echo var_dump($users);
+        return view('blog.post.post',compact('posts'));
     }
 
     /**
@@ -66,9 +67,9 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        return view('posts.edit',compact('post'));
+        //
     }
 
     /**
@@ -80,15 +81,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        $post->update($request->all());
-
-        return redirect()->route('posts.index')
-                        ->with('success','Post updated successfully');
+        //
     }
 
     /**
@@ -97,11 +90,8 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        $post->delete();
-
-        return redirect()->route('posts.index')
-                        ->with('success','Post deleted successfully');
+        //
     }
 }

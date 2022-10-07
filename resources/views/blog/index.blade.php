@@ -64,9 +64,9 @@
 
 
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="blog/{{ $post->id }}">
                             <h2 class="post-title">{{ $post->title }}</h2>
-                            <h3 class="post-subtitle">{{ $post->title }}</h3>
+                            <h3 class="post-subtitle">{{ $post->content }}</h3>
                         </a>
                         <p class="post-meta">
                             Posted by

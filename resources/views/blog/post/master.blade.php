@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="blog2/css/styles.css" rel="stylesheet" />
+        <link href="{{asset('')}}blog2/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -36,24 +36,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('blog2/assets/img/dugong.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="post-heading">
-                            <h1>Dugong di perairan China telah punah</h1>
-                            <h2 class="subheading">Baru punah di china aja ye, bukan diseluruh dunia :v</h2>
-                            <span class="meta">
-                                Posted by
-                                <a href="#!">Julls</a>
-                                on October 04, 2022
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        
         <!-- Post Content-->
     @yield ('konten')
         <!-- Footer-->
@@ -95,6 +78,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="blog2/js/scripts.js"></script>
+        <script src="{{asset('')}}blog2/js/scripts.js"></script>
     </body>
 </html>

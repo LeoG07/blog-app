@@ -19,9 +19,12 @@ use App\Http\Controllers\BlogController;
 //     return view('blog/index');
 // });
 
-Route::resource('/', BlogController::class);
+Route::get('/blog/{id}', [BlogController::class, 'show']);
 
-Route::get('/blog', function () {
+Route::resource('/blog', BlogController::class);
+
+
+Route::get('/', function () {
     return view('blog/index');
 });
 
