@@ -23,10 +23,12 @@ Route::get('/blog/{id}', [BlogController::class, 'show']);
 
 Route::resource('/blog', BlogController::class);
 
+Route::get('/', [BlogController::class, 'index']);
 
-Route::get('/', function () {
-    return view('blog/index');
-});
+
+// Route::get('/', function () {
+//     return view('blog/index');
+// });
 
 Route::get('/about', function () {
     return view('blog/about/about');
